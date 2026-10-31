@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Book Manager</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Library Book Manager</h1>
+    <p>Add, edit, issue, return and search the books of a small library</p>
+  </header>
+
+  <main class="layout">
+
+    <!-- Left card: form -->
+    <section class="card">
+      <h2 id="form-title">Register a book</h2>
+
+      <form id="book-form" novalidate>
+
+        <div class="field">
+          <label for="isbn">ISBN (10 or 13 digits)</label>
+          <input type="text" id="isbn" placeholder="e.g. 9788173711466" maxlength="17">
+          <span class="error" id="isbn-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="title">Book title</label>
+          <input type="text" id="title" placeholder="e.g. Wings of Fire">
+          <span class="error" id="title-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="author">Author</label>
+          <input type="text" id="author" placeholder="e.g. A. P. J. Abdul Kalam">
+          <span class="error" id="author-error"></span>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="year">Year published</label>
+            <input type="number" id="year" placeholder="e.g. 1999">
+            <span class="error" id="year-error"></span>
+          </div>
+
+          <div class="field">
+            <label for="copies">Copies</label>
+            <input type="number" id="copies" placeholder="1 to 100">
+            <span class="error" id="copies-error"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="">-- Select category --</option>
+            <option>Fiction</option>
+            <option>Science</option>
+            <option>Technology</option>
+            <option>History</option>
+            <option>Biography</option>
+            <option>Other</option>
+          </select>
+          <span class="error" id="category-error"></span>
+        </div>
+
+        <div class="field">
+          <span class="label-text">Type</span>
+          <div class="radios">
+            <label><input type="radio" name="type" value="Borrowable"> Borrowable</label>
+            <label><input type="radio" name="type" value="Reference only"> Reference only</label>
+          </div>
+          <span class="error" id="type-error"></span>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" id="save-btn">Save book</button>
+          <button type="button" id="clear-btn" class="grey">Clear form</button>
+          <button type="button" id="cancel-btn" class="cancel">Cancel edit</button>
+        </div>
+        <p id="message"></p>
+      </form>
+    </section>
+
+    <!-- Right card: list -->
+    <section class="card">
+      <h2>Saved books <span class="badge" id="count">0</span></h2>
+
+      <div class="tools">
+        <input type="text" id="search" placeholder="Search by title, author or ISBN">
+        <select id="sort">
+          <option value="title">Sort by title</option>
+          <option value="author">Sort by author</option>
+          <option value="year">Sort by year</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table id="book-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Year</th>
+              <th>Available</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="book-list"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty">No books saved yet.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Web Technology - Assignment 2 | JavaScript with array and JSON storage</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+/* Library Book Manager - stylesheet */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eef1f6;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* Header and footer */
+header {
+  background-color: #2f4a8a;
+  color: white;
+  text-align: center;
+  padding: 22px 15px;
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+footer {
+  background-color: #2f4a8a;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  font-size: 13px;
+}
+
+/* Two cards side by side */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 20px;
+  padding: 20px;
+  align-items: start;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #d5d9e2;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.card h2 {
+  color: #2f4a8a;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.badge {
+  background-color: #ef6c00;
+  color: white;
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  vertical-align: middle;
+}
+
+/* Form */
+.field {
+  margin-bottom: 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label,
+.label-text {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aab0bf;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #2f4a8a;
+}
+
+.invalid {
+  border-color: #c62828 !important;
+  background-color: #fff3f3;
+}
+
+.valid {
+  border-color: #2e7d32 !important;
+}
+
+.error {
+  display: block;
+  color: #c62828;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+.radios {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.radios label {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+button {
+  background-color: #2f4a8a;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #223a70;
+}
+
+button.grey {
+  background-color: #777;
+}
+
+button.grey:hover {
+  background-color: #555;
+}
+
+#cancel-btn {
+  display: none;
+}
+
+#cancel-btn.show {
+  display: inline-block;
+}
+
+button.cancel {
+  background-color: #c62828;
+}
+
+button.cancel:hover {
+  background-color: #9c1f1f;
+}
+
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#message.success {
+  color: #2e7d32;
+}
+
+#message.fail {
+  color: #c62828;
+}
+
+/* Search and sort */
+.tools {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.tools input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #aab0bf;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.tools select {
+  width: auto;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 9px 8px;
+  border-bottom: 1px solid #e0e3ea;
+  font-size: 14px;
+}
+
+th {
+  background-color: #e8ecf5;
+}
+
+.small {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+td button {
+  padding: 4px 9px;
+  font-size: 12px;
+  margin: 2px 2px 2px 0;
+}
+
+.edit {
+  background-color: #2f4a8a;
+}
+
+.issue {
+  background-color: #ef6c00;
+}
+
+.issue:hover {
+  background-color: #cc5a00;
+}
+
+.return {
+  background-color: #2e7d32;
+}
+
+.return:hover {
+  background-color: #1f5e23;
+}
+
+.delete {
+  background-color: #c62828;
+}
+
+.delete:hover {
+  background-color: #9c1f1f;
+}
+
+.in-stock {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.out-stock {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 16px;
+}
+
+/* Tablet and mobile: cards come one under the other */
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .tools {
+    flex-direction: column;
+  }
+
+  .tools select {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 23px;
+  }
+}

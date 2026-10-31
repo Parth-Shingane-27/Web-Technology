@@ -359,3 +359,13 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+
+/* Print */
+@page {
+  margin: 0;
+}
+
+body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
