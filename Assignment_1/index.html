@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RepNation - Fitness Knowledge Hub</title>
+  <link rel="icon" href="assets/icons/logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo"><img src="assets/icons/logo.svg" alt="logo" width="32" height="32"><div>Rep<span>Nation</span></div></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#workouts">Workouts</a></li>
+        <li><a href="#exercises">Exercises</a></li>
+        <li><a href="#muscles">Muscle Guide</a></li>
+        <li><a href="#nutrition">Nutrition</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <p class="tagline">Train Smarter. Live Stronger.</p>
+      <h1>BUILD YOUR BODY.<br><span>MASTER YOUR POTENTIAL.</span></h1>
+      <p>Your ultimate fitness knowledge hub. Discover workouts, master exercise techniques, understand your body and fuel your performance.</p>
+      <a href="#workouts" class="btn">Explore Workouts</a>
+      <a href="#exercises" class="btn btn-outline">Discover Exercises</a>
+      <div class="stats">
+        <div><h3>50+</h3><p>Exercise Guides</p></div>
+        <div><h3>12+</h3><p>Workout Programs</p></div>
+        <div><h3>6</h3><p>Muscle Groups</p></div>
+      </div>
+    </div>
+    <img class="hero-img" src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=70" alt="Man lifting weights in a gym">
+  </section>
+
+  <!-- Workouts -->
+  <section id="workouts" class="section">
+    <h2>FIND YOUR TRAINING STYLE</h2>
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&w=600&q=70" alt="Muscle building">
+        <div class="card-body">
+          <h3>Muscle Building</h3>
+          <p>Moderate reps and steady progression to build muscle size.</p>
+          <p class="info">Level: Intermediate | Duration: 45-75 min</p>
+          <details>
+            <summary>Explore Program</summary>
+            <p><b>Sample exercises:</b> Bench Press, Pull-ups, Squats, Shoulder Press, Bicep Curls.</p>
+            <p><b>Tip:</b> Train 4-5 days a week, eat enough protein and get good sleep. Results vary from person to person.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=70" alt="Fat loss">
+        <div class="card-body">
+          <h3>Fat Loss</h3>
+          <p>Weight training and cardio along with a small calorie deficit.</p>
+          <p class="info">Level: Beginner | Duration: 30-50 min</p>
+          <details>
+            <summary>Explore Program</summary>
+            <p><b>Sample exercises:</b> Squats, Push-ups, Lunges, Planks, Brisk walking.</p>
+            <p><b>Tip:</b> Go slow and steady. Extreme diets are hard to follow and not recommended.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=600&q=70" alt="Strength training">
+        <div class="card-body">
+          <h3>Strength Training</h3>
+          <p>Heavy compound lifts with low reps and long rest times.</p>
+          <p class="info">Level: Advanced | Duration: 60-90 min</p>
+          <details>
+            <summary>Explore Program</summary>
+            <p><b>Sample exercises:</b> Squats, Bench Press, Deadlifts, Shoulder Press.</p>
+            <p><b>Tip:</b> Use a spotter for heavy lifts and rest 2-5 minutes between sets.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=70" alt="Beginner fitness">
+        <div class="card-body">
+          <h3>Beginner Fitness</h3>
+          <p>Simple full-body workouts to learn the basic movements.</p>
+          <p class="info">Level: Beginner | Duration: 30-45 min</p>
+          <details>
+            <summary>Explore Program</summary>
+            <p><b>Sample exercises:</b> Lat Pulldown, Incline Dumbbell Press, Lunges, Planks.</p>
+            <p><b>Tip:</b> Start with light weights, warm up first and train 2-3 days a week.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?auto=format&fit=crop&w=600&q=70" alt="Home workouts">
+        <div class="card-body">
+          <h3>Home Workouts</h3>
+          <p>Bodyweight routines that need little or no equipment.</p>
+          <p class="info">Level: Beginner | Duration: 20-40 min</p>
+          <details>
+            <summary>Explore Program</summary>
+            <p><b>Sample exercises:</b> Push-ups, Lunges, Planks, Leg Raises.</p>
+            <p><b>Tip:</b> Make exercises harder by going slower instead of adding weight.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=70" alt="Athletic conditioning">
+        <div class="card-body">
+          <h3>Athletic Conditioning</h3>
+          <p>Power, speed and endurance training for sports.</p>
+          <p class="info">Level: Intermediate | Duration: 40-60 min</p>
+          <details>
+            <summary>Explore Program</summary>
+            <p><b>Sample exercises:</b> Deadlifts, Squats, Pull-ups, Interval runs.</p>
+            <p><b>Tip:</b> Warm up well and keep hard running days away from heavy leg days.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Exercises -->
+  <section id="exercises" class="section alt">
+    <h2>MASTER EVERY REP</h2>
+
+    <div class="cards">
+
+      <div class="card exercise" data-group="chest">
+        <img src="https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&w=500&q=70" alt="Bench press">
+        <div class="card-body">
+          <h3>Bench Press</h3>
+          <p class="info">Target: Chest | Equipment: Barbell, bench | Level: Intermediate</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Lie on the bench, grip the bar slightly wider than shoulders, lower it to your mid-chest and press it back up.</p>
+            <p><b>Common mistake:</b> Bouncing the bar off the chest.</p>
+            <p><b>Safety:</b> Use a spotter for heavy sets.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="chest">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=500&q=70" alt="Incline dumbbell press">
+        <div class="card-body">
+          <h3>Incline Dumbbell Press</h3>
+          <p class="info">Target: Upper chest | Equipment: Dumbbells, bench | Level: Beginner</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Set the bench to a slight incline, press the dumbbells up above your chest and lower them slowly.</p>
+            <p><b>Common mistake:</b> Setting the bench too steep.</p>
+            <p><b>Safety:</b> Pick a weight you can control.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="back">
+        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=500&q=70" alt="Pull-ups">
+        <div class="card-body">
+          <h3>Pull-ups</h3>
+          <p class="info">Target: Lats | Equipment: Pull-up bar | Level: Advanced</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Hang from the bar, pull your elbows down until your chin passes the bar, then lower slowly.</p>
+            <p><b>Common mistake:</b> Swinging the body.</p>
+            <p><b>Safety:</b> Use a resistance band if you are not strong enough yet.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="back">
+        <img src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&fit=crop&w=500&q=70" alt="Lat pulldown">
+        <div class="card-body">
+          <h3>Lat Pulldown</h3>
+          <p class="info">Target: Lats | Equipment: Cable machine | Level: Beginner</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Sit down, hold the bar wide and pull it to your upper chest.</p>
+            <p><b>Common mistake:</b> Leaning back too much.</p>
+            <p><b>Safety:</b> Do not pull the bar behind your neck.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="back">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=70" alt="Deadlift">
+        <div class="card-body">
+          <h3>Deadlifts</h3>
+          <p class="info">Target: Lower back, glutes | Equipment: Barbell | Level: Advanced</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Stand with the bar over your feet, bend down and grip it, then stand up straight keeping the bar close to your legs.</p>
+            <p><b>Common mistake:</b> Rounding the back.</p>
+            <p><b>Safety:</b> Start light and learn the form first.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="shoulders">
+        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=500&q=70" alt="Shoulder press">
+        <div class="card-body">
+          <h3>Shoulder Press</h3>
+          <p class="info">Target: Shoulders | Equipment: Dumbbells | Level: Intermediate</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Hold the weights at shoulder height and press them overhead until your arms are straight.</p>
+            <p><b>Common mistake:</b> Arching the lower back.</p>
+            <p><b>Safety:</b> Tighten your core while pressing.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="shoulders">
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=500&q=70" alt="Lateral raises">
+        <div class="card-body">
+          <h3>Lateral Raises</h3>
+          <p class="info">Target: Side shoulders | Equipment: Dumbbells | Level: Beginner</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Raise light dumbbells out to your sides up to shoulder height and lower slowly.</p>
+            <p><b>Common mistake:</b> Swinging the weights.</p>
+            <p><b>Safety:</b> Keep the weight light.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="arms">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=500&q=70" alt="Bicep curls">
+        <div class="card-body">
+          <h3>Bicep Curls</h3>
+          <p class="info">Target: Biceps | Equipment: Dumbbells | Level: Beginner</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Keep your elbows at your sides and curl the weights up, then lower slowly.</p>
+            <p><b>Common mistake:</b> Swinging the body.</p>
+            <p><b>Safety:</b> Do not use a weight that is too heavy.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="arms">
+        <img src="https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&w=500&q=70" alt="Tricep pushdowns">
+        <div class="card-body">
+          <h3>Tricep Pushdowns</h3>
+          <p class="info">Target: Triceps | Equipment: Cable machine | Level: Beginner</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Keep your elbows by your sides and push the bar down until your arms are straight.</p>
+            <p><b>Common mistake:</b> Letting elbows move forward.</p>
+            <p><b>Safety:</b> Keep your wrists straight.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="legs">
+        <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=500&q=70" alt="Barbell squats">
+        <div class="card-body">
+          <h3>Barbell Squats</h3>
+          <p class="info">Target: Quads, glutes | Equipment: Barbell, rack | Level: Intermediate</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Place the bar on your upper back, sit down and back, then stand up by pushing through your feet.</p>
+            <p><b>Common mistake:</b> Knees falling inward.</p>
+            <p><b>Safety:</b> Use the rack safety bars.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="abs">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=70" alt="Planks">
+        <div class="card-body">
+          <h3>Planks</h3>
+          <p class="info">Target: Core | Equipment: None | Level: Beginner</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Rest on your forearms and toes and keep your body in a straight line. Hold.</p>
+            <p><b>Common mistake:</b> Hips sagging.</p>
+            <p><b>Safety:</b> Stop when your form breaks.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card exercise" data-group="abs">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=500&q=70" alt="Leg raises">
+        <div class="card-body">
+          <h3>Leg Raises</h3>
+          <p class="info">Target: Lower abs | Equipment: Mat | Level: Intermediate</p>
+          <details>
+            <summary>View details</summary>
+            <p><b>Steps:</b> Lie on your back and lift your straight legs up, then lower them slowly.</p>
+            <p><b>Common mistake:</b> Arching the lower back.</p>
+            <p><b>Safety:</b> Bend your knees if your back lifts off the floor.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Muscle Guide -->
+  <section id="muscles" class="section">
+    <h2>UNDERSTAND YOUR BODY</h2>
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&w=600&q=70" alt="Chest">
+        <div class="card-body">
+          <h3>Chest</h3>
+          <p>The chest muscles help you push things away from your body.</p>
+          <details>
+            <summary>Read more</summary>
+            <p><b>Exercises:</b> Bench Press, Incline Dumbbell Press.</p>
+            <p><b>Tip:</b> Keep your shoulder blades pulled back while pressing.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?auto=format&fit=crop&w=600&q=70" alt="Back">
+        <div class="card-body">
+          <h3>Back</h3>
+          <p>The back muscles help you pull and keep good posture.</p>
+          <details>
+            <summary>Read more</summary>
+            <p><b>Exercises:</b> Pull-ups, Lat Pulldown, Deadlifts.</p>
+            <p><b>Tip:</b> Think about pulling with your elbows, not your hands.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&w=600&q=70" alt="Shoulders">
+        <div class="card-body">
+          <h3>Shoulders</h3>
+          <p>The shoulders let you lift your arms in every direction.</p>
+          <details>
+            <summary>Read more</summary>
+            <p><b>Exercises:</b> Shoulder Press, Lateral Raises.</p>
+            <p><b>Tip:</b> Warm up your shoulders before heavy lifting.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=70" alt="Arms">
+        <div class="card-body">
+          <h3>Biceps &amp; Triceps</h3>
+          <p>Biceps bend the elbow and triceps straighten it.</p>
+          <details>
+            <summary>Read more</summary>
+            <p><b>Exercises:</b> Bicep Curls, Tricep Pushdowns.</p>
+            <p><b>Tip:</b> Do not forget the triceps, they are most of your arm.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=600&q=70" alt="Legs">
+        <div class="card-body">
+          <h3>Quadriceps &amp; Hamstrings</h3>
+          <p>The thigh muscles are used for walking, running and jumping.</p>
+          <details>
+            <summary>Read more</summary>
+            <p><b>Exercises:</b> Barbell Squats, Lunges, Deadlifts.</p>
+            <p><b>Tip:</b> Learn the movement with light weight first.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=70" alt="Core">
+        <div class="card-body">
+          <h3>Core &amp; Abs</h3>
+          <p>The core keeps your spine stable and connects your upper and lower body.</p>
+          <details>
+            <summary>Read more</summary>
+            <p><b>Exercises:</b> Planks, Leg Raises.</p>
+            <p><b>Tip:</b> Breathe normally while holding a plank.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Nutrition -->
+  <section id="nutrition" class="section alt">
+    <h2>FUEL YOUR PERFORMANCE</h2>
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=70" alt="Protein food">
+        <div class="card-body">
+          <h3>Protein</h3>
+          <p class="info">Muscle recovery and growth</p>
+          <p>Found in chicken, fish, eggs, yogurt, lentils and tofu.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=70" alt="Carbohydrates">
+        <div class="card-body">
+          <h3>Carbohydrates</h3>
+          <p class="info">Energy and workout performance</p>
+          <p>Found in rice, oats, potatoes, bread, pasta and fruit.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=70" alt="Healthy fats">
+        <div class="card-body">
+          <h3>Healthy Fats</h3>
+          <p class="info">Hormonal and general health support</p>
+          <p>Found in nuts, seeds, avocado, olive oil and fish.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=600&q=70" alt="Water bottle">
+        <div class="card-body">
+          <h3>Hydration</h3>
+          <p class="info">Maintaining physical performance</p>
+          <p>Drink water through the day and a bit more when you train or when it is hot.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="meals">
+      <div>
+        <h3>Pre-workout</h3>
+        <p>Eat 1-3 hours before training. Carbs with some protein work well, for example oats with a banana.</p>
+      </div>
+      <div>
+        <h3>Post-workout</h3>
+        <p>Have protein and carbs after training, for example eggs on toast with fruit, and drink water.</p>
+      </div>
+      <div>
+        <h3>Healthy meal ideas</h3>
+        <p>Egg and avocado bowl, chickpea salad bowl, salmon with rice and vegetables.</p>
+      </div>
+    </div>
+    <p class="note">This is general information only and not medical or personal diet advice.</p>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips" class="section">
+    <h2>KNOWLEDGE BUILDS STRENGTH</h2>
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=600&q=70" alt="Gym">
+        <div class="card-body">
+          <h3>Common Gym Mistakes</h3>
+          <p>Lifting too heavy, skipping warm-ups and changing plans every week.</p>
+          <details><summary>Read more</summary><p>Pick a simple plan, write down your workouts and judge your progress over months, not days.</p></details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=600&q=70" alt="Dumbbells">
+        <div class="card-body">
+          <h3>Progressive Overload</h3>
+          <p>Slowly do a little more over time so your body keeps adapting.</p>
+          <details><summary>Read more</summary><p>You can add weight, reps or sets. Once you can do all your reps with good form, increase the weight a little.</p></details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=70" alt="Recovery">
+        <div class="card-body">
+          <h3>Importance of Recovery</h3>
+          <p>Your muscles adapt when you rest, not while you lift.</p>
+          <details><summary>Read more</summary><p>Try to sleep 7-9 hours, eat enough and take rest days every week.</p></details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=70" alt="Gym equipment">
+        <div class="card-body">
+          <h3>Beginner Gym Guide</h3>
+          <p>How to start with a simple plan and feel confident.</p>
+          <details><summary>Read more</summary><p>Train 2-3 days a week with basic movements: a squat, a push, a pull and a core exercise. Start light.</p></details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=70" alt="Proper form">
+        <div class="card-body">
+          <h3>Importance of Proper Form</h3>
+          <p>Good technique protects your joints and makes each rep count.</p>
+          <details><summary>Read more</summary><p>Lower the weight if your form changes during a set. Moving slowly helps you stay in control.</p></details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?auto=format&fit=crop&w=600&q=70" alt="Training">
+        <div class="card-body">
+          <h3>Myths About Muscle Building</h3>
+          <p>Separating facts from common fitness myths.</p>
+          <details><summary>Read more</summary><p>You cannot burn fat from just one body part, and building muscle takes years of steady effort, not days.</p></details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section alt">
+    <h2>MORE THAN JUST A FITNESS WEBSITE</h2>
+    <p class="about-text">RepNation was created to make fitness knowledge accessible to everyone. Whether you are stepping into a gym for the first time or improving your athletic performance, our goal is to help you train intelligently, understand your body and build sustainable fitness habits.</p>
+    <div class="values">
+      <div><h3>Knowledge</h3><p>Clear information so every rep has a reason.</p></div>
+      <div><h3>Consistency</h3><p>Small habits repeated over time work best.</p></div>
+      <div><h3>Performance</h3><p>Train and eat with a purpose.</p></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <h3>Rep<span>Nation</span></h3>
+      <p class="footer-tagline">Train Smarter. Live Stronger.</p>
+    </div>
+    <div class="footer-right">
+      <h4>Contact</h4>
+      <p>hello@repnation.example</p>
+      <p>Facebook | Instagram | YouTube</p>
+    </div>
+  </footer>
+</body>
+</html>
