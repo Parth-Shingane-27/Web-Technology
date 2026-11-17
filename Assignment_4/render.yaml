@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: express-validator-demo
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
