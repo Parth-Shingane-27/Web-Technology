@@ -2,6 +2,8 @@
 
 A registration form whose rules (name, email, phone, age, password strength, confirm password, terms) are enforced **only on the server**. The form uses `novalidate`, so the server visibly rejects bad input, re-renders the form with per-field errors, keeps entered values (never passwords) and returns HTTP 422. A JSON endpoint reuses the same validator.
 
+**Live demo:** https://server-side-validation-e8ad.onrender.com (free tier; the first load after idle takes about 30 s)
+
 ## Run
     npm install
     npm start        # http://localhost:3000
