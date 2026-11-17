@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: server-side-validation-demo
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
