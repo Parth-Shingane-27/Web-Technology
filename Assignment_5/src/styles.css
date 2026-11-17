@@ -1,0 +1,52 @@
+:root { --bg:#f3f4f8; --card:#fff; --text:#1c2033; --muted:#6b7089; --line:#d9dce8; --accent:#4f46e5; --ok:#16a34a; --err:#dc2626; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#12131c; --card:#1c1e2b; --text:#e8e9f3; --muted:#9a9eb8; --line:#33364a; --accent:#818cf8; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui, sans-serif; padding:24px 16px; }
+.card { max-width:720px; margin:0 auto; background:var(--card); padding:28px; border-radius:14px; box-shadow:0 4px 24px #0001; }
+h1 { margin:0 0 4px; font-size:1.6rem; }
+.sub { color:var(--muted); margin:0 0 18px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+@media (max-width:600px) { .grid { grid-template-columns:1fr; } .card { padding:20px; } }
+.field { margin-bottom:14px; position:relative; }
+label { display:block; font-weight:600; font-size:.9rem; margin-bottom:4px; }
+.req { color:var(--err); }
+input:not([type=checkbox]), select, textarea {
+  width:100%; padding:10px 12px; border:1.5px solid var(--line); border-radius:8px;
+  background:transparent; color:inherit; font:inherit;
+}
+select option { color:#000; }
+input:focus, select:focus, textarea:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px #4f46e533; }
+.field.invalid input:not([type=checkbox]), .field.invalid select, .field.invalid textarea { border-color:var(--err); }
+.field.valid input:not([type=checkbox]), .field.valid select, .field.valid textarea { border-color:var(--ok); }
+.msg { margin:4px 0 0; font-size:.82rem; min-height:1.2em; }
+.msg.err { color:var(--err); } .msg.ok { color:var(--ok); } .msg.hint { color:var(--muted); }
+.count { position:absolute; right:8px; top:2px; font-size:.78rem; color:var(--muted); }
+.count.over { color:var(--err); font-weight:700; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { display:inline-flex; gap:6px; align-items:center; margin:0; padding:6px 14px; border:1.5px solid var(--line); border-radius:999px; cursor:pointer; font-weight:500; }
+.chip.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+.chip input { display:none; }
+.terms { display:flex; gap:8px; align-items:center; font-weight:500; }
+.pw { position:relative; }
+.pw input { padding-right:60px; }
+.link { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:0; color:var(--accent); font-weight:600; cursor:pointer; }
+.progress { position:relative; height:22px; background:var(--line); border-radius:999px; overflow:hidden; margin:16px 0 20px; }
+.progress div { height:100%; background:var(--accent); transition:width .3s; }
+.progress span { position:absolute; inset:0; text-align:center; font-size:.78rem; line-height:22px; color:var(--text); font-weight:600; }
+.strength { margin:-4px 0 14px; font-size:.85rem; }
+.bar { height:6px; background:var(--line); border-radius:4px; margin-bottom:4px; }
+.bar div { height:100%; border-radius:4px; transition:width .25s, background .25s; }
+.s0 div,.s1 div,.s2 div { background:var(--err); } .s3 div { background:#f59e0b; } .s4 div { background:#84cc16; } .s5 div { background:var(--ok); }
+.strength ul { list-style:none; display:flex; flex-wrap:wrap; gap:4px 16px; padding:0; margin:6px 0 0; color:var(--muted); }
+.strength li.ok { color:var(--ok); }
+.actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px; }
+.btn { background:var(--accent); color:#fff; border:0; padding:11px 26px; border-radius:8px; font:inherit; font-weight:600; cursor:pointer; }
+.btn.ghost { background:transparent; color:var(--text); border:1.5px solid var(--line); }
+.left { color:var(--err); font-size:.85rem; }
+.success { text-align:center; }
+.tick { width:60px; height:60px; margin:0 auto 10px; border-radius:50%; background:var(--ok); color:#fff; font-size:2rem; line-height:60px; }
+dl { text-align:left; margin:18px 0; }
+dl div { display:flex; gap:12px; padding:8px 0; border-bottom:1px solid var(--line); }
+dt { width:110px; color:var(--muted); text-transform:capitalize; } dd { margin:0; word-break:break-word; }

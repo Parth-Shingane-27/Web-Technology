@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: react-client-validation
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
