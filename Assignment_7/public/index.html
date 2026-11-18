@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Library - MongoDB Demo</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1c2430; --muted:#667085; --line:#e3e6eb; --accent:#13aa52; --danger:#d92d20; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#12161c; --card:#1a2028; --text:#e8ecf1; --muted:#98a2b3; --line:#2b3340; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.5 system-ui,sans-serif; background:var(--bg); color:var(--text); }
+  header { padding:20px 16px; border-bottom:1px solid var(--line); background:var(--card); }
+  h1 { margin:0; font-size:1.3rem; } 
+  main { max-width:1300px; margin:0 auto; padding:16px; display:grid; gap:16px; grid-template-columns: 320px 1fr; align-items:stretch; }
+  @media (max-width:820px) { main { grid-template-columns:1fr; } }
+  section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  h2 { margin:0 0 12px; font-size:1.05rem; }
+  label { display:block; font-size:.8rem; color:var(--muted); margin:8px 0 2px; }
+  input, select { width:100%; padding:8px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--text); font:inherit; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  button { padding:8px 12px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; font:inherit; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button.danger { color:var(--danger); }
+  button.small { padding:3px 8px; font-size:.8rem; }
+  .actions { display:flex; align-items:center; gap:8px; margin-top:12px; flex-wrap:wrap; }
+  .filters { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; margin-bottom:12px; }
+  .filters label { margin-top:0; }
+  .book { border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin-bottom:8px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .book h3 { margin:0; font-size:1rem; } .meta { color:var(--muted); font-size:.85rem; }
+  .tag { display:inline-block; background:var(--bg); border:1px solid var(--line); border-radius:99px; padding:0 8px; font-size:.75rem; margin:4px 4px 0 0; cursor:pointer; }
+  .badge { font-size:.75rem; padding:1px 8px; border-radius:99px; color:#fff; background:var(--accent); }
+  .badge.out { background:var(--danger); }
+  .err { color:var(--danger); font-size:.8rem; } #msg { min-height:1.2em; color:var(--muted); font-size:.85rem; margin-top:8px; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; } th,td { text-align:left; padding:4px 6px; border-bottom:1px solid var(--line); }
+  .bar { display:inline-block; height:8px; background:var(--accent); border-radius:4px; vertical-align:middle; }
+  #books { display:flex; flex-direction:column; }
+  #list { flex:1 1 0; min-height:320px; overflow-y:auto; padding-right:4px; }
+  @media (max-width:820px) { #list { flex:none; max-height:480px; } }
+  #stats .row { grid-template-columns:2fr 1fr; align-items:start; }
+  .full { grid-column:1/-1; }
+  code { background:var(--bg); padding:1px 5px; border-radius:4px; font-size:.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Library Catalogue</h1>
+</header>
+<main>
+  <section>
+    <h2 id="formTitle">Add book</h2>
+    <form id="form" novalidate>
+      <label for="title">Title</label><input id="title" name="title" maxlength="120">
+      <label for="author">Author</label><input id="author" name="author" maxlength="80">
+      <div class="row">
+        <div><label for="genre">Genre</label><input id="genre" name="genre" list="genres" maxlength="40"><datalist id="genres"></datalist></div>
+        <div><label for="year">Year</label><input id="year" name="year" type="number"></div>
+      </div>
+      <div class="row">
+        <div><label for="rating">Rating (0-5)</label><input id="rating" name="rating" type="number" step="0.1" min="0" max="5"></div>
+        <div><label for="tags">Tags (comma separated)</label><input id="tags" name="tags"></div>
+      </div>
+      <div class="row">
+        <div><label for="pubName">Publisher (nested)</label><input id="pubName" name="pubName"></div>
+        <div><label for="pubCountry">Country</label><input id="pubCountry" name="pubCountry"></div>
+      </div>
+      <div class="err" id="errors"></div>
+      <div class="actions">
+        <button class="primary" type="submit" id="save">Save</button>
+        <button type="button" id="cancel" hidden>Cancel edit</button>
+      </div>
+      <div id="msg" role="status"></div>
+    </form>
+  </section>
+
+  <section id="books">
+    <h2>Books <span class="meta" id="count"></span></h2>
+    <div class="filters">
+      <div><label for="q">Text search</label><input id="q" placeholder="title, author, tag"></div>
+      <div><label for="fGenre">Genre</label><select id="fGenre"><option value="">All</option></select></div>
+      <div><label for="fAvail">Availability</label><select id="fAvail"><option value="">Any</option><option value="true">Available</option><option value="false">Issued</option></select></div>
+      <div><label for="fRating">Min rating</label><input id="fRating" type="number" min="0" max="5" step="0.1"></div>
+      <div><label for="fSort">Sort</label>
+        <select id="fSort"><option value="-createdAt">Newest</option><option value="title">Title A-Z</option><option value="-rating">Rating high-low</option><option value="year">Year old-new</option><option value="-year">Year new-old</option></select></div>
+    </div>
+    <div id="list"></div>
+  </section>
+
+  <section class="full" id="stats">
+    <h2>Aggregation (MongoDB pipeline)</h2>
+    <div class="row">
+      <div><table id="byGenre"></table></div>
+      <div><table id="topTags"></table></div>
+    </div>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const el = (tag, props = {}, ...kids) => {
+  const n = Object.assign(document.createElement(tag), props);
+  kids.forEach((k) => n.append(k));
+  return n;
+};
+let editingId = null;
+
+async function api(method, url, body) {
+  const r = await fetch(url, { method, headers: { 'content-type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.error || 'Request failed'), { data });
+  return data;
+}
+const say = (t) => { $('msg').textContent = t; };
+
+function params() {
+  const p = new URLSearchParams();
+  if ($('q').value.trim()) p.set('q', $('q').value.trim());
+  if ($('fGenre').value) p.set('genre', $('fGenre').value);
+  if ($('fAvail').value) p.set('available', $('fAvail').value);
+  if ($('fRating').value) p.set('minRating', $('fRating').value);
+  if (window.tagFilter) p.set('tag', window.tagFilter);
+  p.set('sort', $('fSort').value);
+  return p.toString();
+}
+
+async function loadBooks() {
+  const { items, total } = await api('GET', '/api/books?' + params());
+  $('count').textContent = `(${total})` + (window.tagFilter ? ` tag: ${window.tagFilter}` : '');
+  const list = $('list');
+  list.replaceChildren();
+  if (!items.length) list.append(el('p', { className: 'meta', textContent: 'No books found. Add one using the form.' }));
+  for (const b of items) {
+    const tags = el('div');
+    b.tags.forEach((t) => tags.append(el('span', { className: 'tag', textContent: t, onclick: () => { window.tagFilter = t; refresh(); } })));
+    const info = el('div', {},
+      el('h3', { textContent: b.title }),
+      el('div', { className: 'meta', textContent: `${b.author} · ${b.genre}${b.year ? ' · ' + b.year : ''} · ★ ${b.rating ?? 0}` + (b.publisher?.name ? ` · ${b.publisher.name}${b.publisher.country ? ' (' + b.publisher.country + ')' : ''}` : '') }),
+      tags);
+    const acts = el('div', { className: 'actions' },
+      el('span', { className: 'badge' + (b.available ? '' : ' out'), textContent: b.available ? 'Available' : 'Issued' }),
+      el('button', { className: 'small', textContent: b.available ? 'Issue' : 'Return', onclick: async () => { await api('PATCH', `/api/books/${b._id}/toggle`); refresh(); } }),
+      el('button', { className: 'small', textContent: 'Edit', onclick: () => startEdit(b) }),
+      el('button', { className: 'small danger', textContent: 'Delete', onclick: async () => { if (confirm(`Delete "${b.title}"?`)) { await api('DELETE', `/api/books/${b._id}`); refresh(); } } }));
+    list.append(el('div', { className: 'book' }, info, acts));
+  }
+}
+
+async function loadStats() {
+  const s = await api('GET', '/api/stats');
+  const max = Math.max(1, ...s.byGenre.map((g) => g.count));
+  const g = $('byGenre'); g.replaceChildren(el('tr', {}, ...['Genre', 'Books', 'Avg ★', 'Available'].map((h) => el('th', { textContent: h }))));
+  s.byGenre.forEach((r) => g.append(el('tr', {}, el('td', { textContent: r.genre }),
+    el('td', {}, el('span', { className: 'bar', style: `width:${(r.count / max) * 60}px` }), ' ' + r.count),
+    el('td', { textContent: r.avgRating }), el('td', { textContent: r.available }))));
+  const t = $('topTags'); t.replaceChildren(el('tr', {}, el('th', { textContent: 'Top tags' }), el('th', { textContent: 'Count' })));
+  s.topTags.forEach((r) => t.append(el('tr', {}, el('td', { textContent: r.tag }), el('td', { textContent: r.count }))));
+  const names = s.byGenre.map((x) => x.genre);
+  const cur = $('fGenre').value;
+  $('fGenre').replaceChildren(el('option', { value: '', textContent: 'All' }), ...names.map((n) => el('option', { value: n, textContent: n })));
+  $('fGenre').value = names.includes(cur) ? cur : '';
+  $('genres').replaceChildren(...names.map((n) => el('option', { value: n })));
+}
+
+const refresh = () => Promise.all([loadBooks(), loadStats()]).catch((e) => say(e.message));
+
+function startEdit(b) {
+  editingId = b._id;
+  $('title').value = b.title; $('author').value = b.author; $('genre').value = b.genre;
+  $('year').value = b.year ?? ''; $('rating').value = b.rating ?? ''; $('tags').value = b.tags.join(', ');
+  $('pubName').value = b.publisher?.name || ''; $('pubCountry').value = b.publisher?.country || '';
+  $('formTitle').textContent = 'Edit book'; $('cancel').hidden = false; $('title').focus();
+}
+function resetForm() {
+  editingId = null; $('form').reset(); $('errors').textContent = '';
+  $('formTitle').textContent = 'Add book'; $('cancel').hidden = true;
+}
+$('cancel').onclick = resetForm;
+
+$('form').onsubmit = async (e) => {
+  e.preventDefault();
+  const body = {
+    title: $('title').value, author: $('author').value, genre: $('genre').value,
+    year: $('year').value, rating: $('rating').value, tags: $('tags').value,
+    publisher: { name: $('pubName').value, country: $('pubCountry').value },
+  };
+  try {
+    if (editingId) await api('PUT', `/api/books/${editingId}`, body); else await api('POST', '/api/books', body);
+    say(editingId ? 'Book updated.' : 'Book added.'); resetForm(); refresh();
+  } catch (err) {
+    $('errors').textContent = err.data?.errors ? Object.values(err.data.errors).join(' ') : err.message;
+  }
+};
+
+
+let timer;
+['q', 'fRating'].forEach((id) => $(id).addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(loadBooks, 250); }));
+['fGenre', 'fAvail', 'fSort'].forEach((id) => $(id).addEventListener('change', loadBooks));
+$('count').addEventListener('click', () => { window.tagFilter = ''; loadBooks(); });
+refresh();
+</script>
+</body>
+</html>
