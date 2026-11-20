@@ -1,0 +1,17 @@
+{
+  "name": "student-api",
+  "version": "1.0.0",
+  "description": "REST API performing CRUD on MongoDB, deployable on Render and testable with Postman",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0"
+  }
+}

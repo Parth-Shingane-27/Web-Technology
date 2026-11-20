@@ -1,0 +1,5 @@
+# PDF reports and zip files are not uploaded to GitHub
+*.pdf
+*.zip
+node_modules
+.env

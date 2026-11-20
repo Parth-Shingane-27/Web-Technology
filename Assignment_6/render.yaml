@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: student-crud-api
+    runtime: node
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MONGODB_URI
+        sync: false   # paste your MongoDB Atlas connection string in the Render dashboard
