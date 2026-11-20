@@ -2,7 +2,7 @@
 
 REST API that performs Create, Read, Update and Delete on a `students` collection in MongoDB Atlas (Mongoose). Deployed on Render and tested with Postman.
 
-Live: _add your Render URL here after deploying_
+Live: https://student-crud-api-aoep.onrender.com
 
 ## Run locally
     npm install
