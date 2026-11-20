@@ -4,6 +4,10 @@ REST API that performs Create, Read, Update and Delete on a `students` collectio
 
 Live: https://student-crud-api-aoep.onrender.com
 
+API base: https://student-crud-api-aoep.onrender.com/api/students
+
+> Hosted on Render's free tier, so the first request after a period of inactivity can take 30-60 seconds while the service wakes up.
+
 ## Run locally
     npm install
     copy .env.example .env     # add your MONGODB_URI
@@ -26,6 +30,19 @@ Student body:
 
     { "name": "Asha Patil", "email": "asha@example.com", "age": 20, "course": "Computer Engineering", "cgpa": 8.5 }
 
+Validation: `name`, `email` and `course` are required; `email` must be valid and unique; `age` 15-100; `cgpa` 0-10.
+
+## Example (curl)
+    curl https://student-crud-api-aoep.onrender.com/api/students
+    curl -X POST https://student-crud-api-aoep.onrender.com/api/students -H "Content-Type: application/json" -d "{\"name\":\"Asha Patil\",\"email\":\"asha@example.com\",\"course\":\"Computer Engineering\"}"
+
+## Project files
+- `server.js` - connects to MongoDB and starts the server
+- `app.js` - Express routes, input whitelisting and error handling
+- `models.js` - Mongoose `Student` schema
+- `postman_collection.json` - Postman collection with test scripts
+- `render.yaml` - Render deployment config
+
 ## Deploy on Render
 1. Create a free MongoDB Atlas cluster, a database user, and allow network access `0.0.0.0/0`. Copy the connection string.
 2. Push this repo to GitHub.
@@ -34,7 +51,7 @@ Student body:
 5. Open `https://<your-service>.onrender.com/health` - it should return `ok`.
 
 ## Test with Postman
-1. Import `postman_collection.json`.
-2. Set the collection variable `baseUrl` to your Render URL (default is `http://localhost:3000`).
-3. Run the collection with the Collection Runner. Each request has test scripts and the created id is stored automatically, so the 11 requests (create, validation errors, read, PUT, PATCH, delete, 404) should all pass.
+1. In Postman open the **Collections** view and click **Import** (do not open the folder in Local Mode), then choose `postman_collection.json`.
+2. The collection variable `baseUrl` is already set to the Render URL. Use `http://localhost:3000` to test a local server.
+3. Send **Health check** once to wake the server, then run the collection with the Collection Runner. Each request has test scripts and the created id is stored automatically, so all 11 requests (create, validation errors, duplicate, read, PUT, PATCH, delete, 404, bad id) should pass.
 4. Take screenshots of each request/response for the report.
